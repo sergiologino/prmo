@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadPreviousData(selectedDate) {
         // Здесь отправьте запрос на сервер, чтобы получить ранее введенные данные
         // Пример:
-        // fetch(`/api/previous-data?date=${selectedDate}&department=${getSelectedDepartment()}&group=${getSelectedGroup()}`)
-        //     .then(response => response.json())
-        //     .then(data => {
+        fetch(`/api/previous-data?date=${selectedDate}&department=${getSelectedDepartment()}&group=${getSelectedGroup()}`)
+             .then(response => response.json())
+             .then(data => {
         //         // Обновите значения полей prmo1 и prmo2 с полученными данными
         //         // Например, data.prmo1 и data.prmo2
-        //         document.getElementById("prmo1").value = data.prmo1;
-        //         document.getElementById("prmo2").value = data.prmo2;
-        //     })
-        //     .catch(error => console.error('Ошибка при получении ранее введенных данных:', error));
+                 document.getElementById("prmo1").value = data.prmo1;
+                 document.getElementById("prmo2").value = data.prmo2;
+             })
+             .catch(error => console.error('Ошибка при получении ранее введенных данных:', error));
     }
 
     // Функция для получения текущей даты
